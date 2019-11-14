@@ -53,7 +53,9 @@ public class CarroResource {
     @ResponseStatus(HttpStatus.OK)
     public List<Carro> list(@RequestParam(name = "tipo", required = false) String tipo) {
         if(ObjectUtils.isEmpty(tipo)) return repository.findAll();
-        return repository.findByTipo(Carro.Tipo.toEnum(tipo));
+        var lista = repository.findByTipo(Carro.Tipo.byName(tipo));
+//        lista.forEach(carro -> carro.setDescricao("vazio"));
+        return lista;
     }
 
     @GetMapping(path = "/{id}")

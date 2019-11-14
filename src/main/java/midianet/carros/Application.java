@@ -22,14 +22,19 @@ public class Application {
 
     @Transactional
     @PostConstruct
-    private void load(){
-        var template = new RestTemplate();
-        var carros = template.getForObject("https://carros-springboot.herokuapp.com/api/v1/carros/", Carro[].class);
-        for(var carro: carros){
-            carro.setCodigo(carro.getId());
-            carro.setId(null);
-            repository.save(carro);
-        }
+    public void load(){
+//        var template = new RestTemplate();
+//        var carros = template.getForObject("https://carros-springboot.herokuapp.com/api/v1/carros/", Carro[].class);
+//        for(var carro: carros){
+//            carro.setCodigo(carro.getId());
+//            carro.setId(null);
+//            repository.save(carro);
+//        }
+//        repository.findAll().forEach(carro -> {
+//            carro.setDescricao(carro.getDescricao().replace("\"", ""));
+//            repository.save(carro);
+//        });
+
     }
 
 }
