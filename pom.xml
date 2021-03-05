@@ -47,6 +47,26 @@
     </dependencies>
 
     <build>
+        <finalName>carros-api</finalName>
+      <plugin>
+            <groupId>com.spotify</groupId>
+            <artifactId>dockerfile-maven-plugin</artifactId>
+            <version>1.4.13</version>
+            <executions>
+              <execution>
+                <id>default</id>
+                <goals>
+                  <goal>build</goal>
+                  <goal>push</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+              <repository>midianet/carros-api</repository>
+              <tag>${project.version}</tag>
+            </configuration>
+          </plugin>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
