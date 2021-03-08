@@ -22,23 +22,28 @@ spec:
               cpu: "500m"
           ports:
             - containerPort: 8080
-#          readinessProbe:
-#            httpGet:
-#              path: /health
-#              port: 8080
-#            initialDelaySeconds: 40
-#            timeoutSeconds: 20
-#            periodSeconds: 30
-#            failureThreshold: 10
-#          livenessProbe:
-#            httpGet:
-#              path: /health
-#              port: 8080
-#            initialDelaySeconds: 100
-#            timeoutSeconds: 20
-#            periodSeconds: 80
-#            failureThreshold: 10
-
+          readinessProbe:
+            httpGet:
+              path:  /actuator/health
+              port: 8080
+            initialDelaySeconds: 180
+            timeoutSeconds: 20
+            periodSeconds: 30
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path:  /actuator/health
+              port: 8080
+            initialDelaySeconds: 180
+            timeoutSeconds: 20
+            periodSeconds: 80
+            failureThreshold: 10
+          startupProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            failureThreshold: 30
+            periodSeconds: 10
 ---
 
 apiVersion: v1

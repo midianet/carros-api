@@ -13,12 +13,12 @@ public class CustomHealthIndicator implements HealthIndicator {
 
     private boolean isHealthy = true;
 
-//    public CustomHealthIndicator() {
-//        ScheduledExecutorService scheduled = Executors.newSingleThreadScheduledExecutor();
-//        scheduled.schedule(() -> {
-//            isHealthy = true;
-//        }, 30, TimeUnit.SECONDS);
-//    }
+    public CustomHealthIndicator() {
+        ScheduledExecutorService scheduled = Executors.newSingleThreadScheduledExecutor();
+        scheduled.schedule(() -> {
+            isHealthy = true;
+        }, 5, TimeUnit.MINUTES);
+    }
 
     @Override
     public Health health() {
