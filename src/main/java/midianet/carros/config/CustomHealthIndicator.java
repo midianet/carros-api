@@ -16,7 +16,7 @@ public class CustomHealthIndicator implements HealthIndicator {
 //    public CustomHealthIndicator() {
 //        ScheduledExecutorService scheduled = Executors.newSingleThreadScheduledExecutor();
 //        scheduled.schedule(() -> {
-//            isHealthy = false;
+//            isHealthy = true;
 //        }, 30, TimeUnit.SECONDS);
 //    }
 
