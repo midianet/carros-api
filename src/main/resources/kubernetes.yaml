@@ -27,17 +27,17 @@ spec:
               path: /health
               port: 8080
             initialDelaySeconds: 40
-            timeoutSeconds: 2
-            periodSeconds: 3
-            failureThreshold: 1
+            timeoutSeconds: 20
+            periodSeconds: 30
+            failureThreshold: 10
           livenessProbe:
             httpGet:
               path: /health
               port: 8080
             initialDelaySeconds: 100
-            timeoutSeconds: 2
-            periodSeconds: 8
-            failureThreshold: 1
+            timeoutSeconds: 20
+            periodSeconds: 80
+            failureThreshold: 10
 
 ---
 
