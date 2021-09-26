@@ -18,9 +18,11 @@ pipeline {
             }
         }
         stage('Publish Image'){
-            script{
-                def version =  readMavenPom().getVersion()
-                sh "docker push midianet/carros-api:$version"
+            steps{
+                script {
+                    def version =  readMavenPom().getVersion()
+                    sh "docker push midianet/carros-api:$version"
+                }
             }
         }
     }
