@@ -10,7 +10,7 @@
     </parent>
     <groupId>midianet</groupId>
     <artifactId>carros-api</artifactId>
-    <version>6.0.0</version>
+    <version>52.0.0</version>
     <name>carros-api</name>
     <description>Api de Carros</description>
 
@@ -84,12 +84,12 @@
                 <id>default</id>
                 <goals>
                   <goal>build</goal>
-                  <goal>push</goal>
+<!--                  <goal>push</goal>-->
                 </goals>
               </execution>
             </executions>
             <configuration>
-              <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+<!--              <useMavenSettingsForAuth>true</useMavenSettingsForAuth>-->
               <repository>midianet/carros-api</repository>
               <tag>${project.version}</tag>
             </configuration>
