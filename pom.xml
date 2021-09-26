@@ -10,7 +10,7 @@
     </parent>
     <groupId>midianet</groupId>
     <artifactId>carros-api</artifactId>
-    <version>3.0.0</version>
+    <version>4.0.0</version>
     <name>carros-api</name>
     <description>Api de Carros</description>
 
