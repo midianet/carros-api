@@ -12,7 +12,7 @@ pipeline {
                 git 'https://github.com/midianet/carros-api.git'
             }
         }
-        stage('Checkout') {
+        stage('Build') {
             steps {
                 sh "mvn clean package dockerfile:build"
             }
