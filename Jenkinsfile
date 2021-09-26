@@ -17,10 +17,11 @@ pipeline {
                 sh "mvn clean package dockerfile:build"
             }
         }
-//         stage('Publish Image'){
-//             steps {
-//
-//             }
-//         }
+        stage('Publish Image'){
+             steps {
+                def version =  readMavenPom().getVersion()
+                sh "docker push midianet/carros-api:$version"
+             }
+        }
     }
 }
