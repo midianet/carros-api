@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: carros-api
-          image: midianet/carros-api:@project.version@
+          image: midianet/carros-api:5.0.0
           resources:
             limits:
               memory: "512Mi"
