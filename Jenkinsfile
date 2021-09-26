@@ -25,5 +25,10 @@ pipeline {
                 }
             }
         }
+        stage('Deploy') {
+            steps {
+                sh "kubectl apply -f target/classes/kubernetes.yaml"
+            }
+        }
     }
 }
