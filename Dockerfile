@@ -2,6 +2,5 @@ FROM midianet/java11:1
 COPY target/carros-api.jar /opt/app.jar
 COPY carros.mv.db /opt
 COPY cars /opt/cars
-ENTRYPOINT sh
-#java -jar /opt/app.jar
+ENTRYPOINT java -jar /opt/app.jar
 EXPOSE 8080
