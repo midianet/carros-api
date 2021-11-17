@@ -56,20 +56,16 @@ public class Carro {
         @Getter
         private String sigla;
 
-        public static Tipo byName(String name){
-            for(var tipo : Tipo.values()) {
-                if (tipo.name().equals(name)) return tipo;
-            }
-            throw new IllegalArgumentException("Valor inválido");
+       
+        public static Tipo byName(@NonNull final String name){
+           return Tipo.valueOf(name);
         }
 
-        public static Tipo bySigla(String sigla){
-            for(var tipo : Tipo.values()){
-                if(tipo.sigla.equals(sigla)) return tipo;
-            }
-            throw new IllegalArgumentException("Valor da sigla inválido");
-        }
-
-    }
+        public static Natureza byDescricao(@NonNull final String sigla){
+            return Arrays.asList(Tipo.values()).stream()
+                .filter(tipo -> tipo.sigla.equals(sigla))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Sigla de Tipo inválida"));
+       }
 
 }
