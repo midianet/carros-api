@@ -14,13 +14,13 @@ pipeline {
         }
         stage('Build') {
             steps {
+                sh "docker login -u midianet -p P@$w00rd registry-1.docker.io"
                 sh "mvn clean package dockerfile:build"
             }
         }
         stage('Publish Image'){
             steps{
                 script {
-                    docker login -u midianet -p 'P@$w00rd' registry-1.docker.io
                     def version =  readMavenPom().getVersion()
                     sh "docker push midianet/carros-api:$version"
                 }
