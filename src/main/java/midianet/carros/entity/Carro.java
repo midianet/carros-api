@@ -4,9 +4,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NonNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.Arrays;
 import java.util.Random;
 
 @Data
@@ -60,7 +62,7 @@ public class Carro {
            return Tipo.valueOf(name);
         }
 
-        public static Carro.Tipo byDescricao(@NonNull final String sigla){
+        public static Carro.Tipo bySigla(@NonNull final String sigla){
             return Arrays.asList(Tipo.values()).stream()
                 .filter(tipo -> tipo.sigla.equals(sigla))
                 .findFirst()
