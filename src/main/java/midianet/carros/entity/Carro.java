@@ -47,7 +47,7 @@ public class Carro {
     private Integer potencia;
 
     @Transient
-    private Integer ranking = new Random().nextInt((10 - 1) + 1) + 1; ;
+    private Integer ranking = new Random().nextInt((10 - 1) + 1) + 1;
 
     @AllArgsConstructor
     public enum Tipo {
@@ -55,17 +55,18 @@ public class Carro {
 
         @Getter
         private String sigla;
-
        
         public static Tipo byName(@NonNull final String name){
            return Tipo.valueOf(name);
         }
 
-        public static Natureza byDescricao(@NonNull final String sigla){
+        public static Tipo byDescricao(@NonNull final String sigla){
             return Arrays.asList(Tipo.values()).stream()
                 .filter(tipo -> tipo.sigla.equals(sigla))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Sigla de Tipo inválida"));
        }
+        
+    }
 
 }
