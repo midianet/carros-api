@@ -56,11 +56,11 @@ public class Carro {
         @Getter
         private String sigla;
        
-        public static Tipo byName(@NonNull final String name){
+        public static Carro.Tipo byName(@NonNull final String name){
            return Tipo.valueOf(name);
         }
 
-        public static Tipo byDescricao(@NonNull final String sigla){
+        public static Carro.Tipo byDescricao(@NonNull final String sigla){
             return Arrays.asList(Tipo.values()).stream()
                 .filter(tipo -> tipo.sigla.equals(sigla))
                 .findFirst()
