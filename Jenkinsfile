@@ -20,7 +20,7 @@ pipeline {
         stage('Publish Image'){
             steps{
                 script {
-                    docker login -u midianet -p P#$w00rd registry-1.docker.io
+                    docker login -u midianet -p 'P@$w00rd' registry-1.docker.io
                     def version =  readMavenPom().getVersion()
                     sh "docker push midianet/carros-api:$version"
                 }
