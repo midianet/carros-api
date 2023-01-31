@@ -60,6 +60,13 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <url>${nexus-repo}</url>
+        </repository>
+    </distributionManagement>
+
     <build>
        <finalName>carros-api</finalName>
        <resources>
@@ -75,28 +82,22 @@
          </resource>
        </resources>
         <plugins>
-           <plugin>
-            <groupId>com.spotify</groupId>
-            <artifactId>dockerfile-maven-plugin</artifactId>
-            <version>1.4.13</version>
-            <executions>
-              <execution>
-                <id>default</id>
-                <goals>
-                  <goal>build</goal>
-<!--                  <goal>push</goal>-->
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-<!--              <useMavenSettingsForAuth>true</useMavenSettingsForAuth>-->
-              <repository>midianet/carros-api</repository>
-              <tag>${project.version}</tag>
-            </configuration>
-           </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>default-deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
