@@ -41,8 +41,8 @@ pipeline {
             steps {
                 sshagent(credentials: ['ssh-carros']) {
                     sh "echo ${env.img}"
-                    sh 'ssh -o StrictHostKeyChecking=no ${SERVER_CARROSAPI} docker rm -f carros-api'
-                    sh "ssh -o StrictHostKeyChecking=no ${SERVER_CARROSAPI} docker run -itd --name carros-api --restart=always -p 80:8080 ${DOCKERHUB_USER}/carros-api:${env.img}"
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_CARROSAPI} docker rm -f carros-api'
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_CARROSAPI} docker run -itd --name carros-api --restart=always -p 80:8080 ${DOCKERHUB_USER}/carros-api:${env.img}"
                 }
             }
         }
