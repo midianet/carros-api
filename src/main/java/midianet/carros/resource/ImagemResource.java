@@ -13,11 +13,14 @@ import java.nio.file.Files;
 @RequestMapping(value = "/imagens")
 public class ImagemResource {
 
-    @GetMapping(produces = MediaType.IMAGE_PNG_VALUE)
+    @GetMapping(path = "/{id}", produces = MediaType.IMAGE_PNG_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public byte[] list(@RequestParam(name = "nome") String nome) throws IOException {
-        var f = new File(String.format("/opt/cars/%s.png", nome));
-       return Files.readAllBytes(f.toPath());
+    public byte[] get(@PathVariable final Integer id) throws IOException {
+        return getPhoto(id);
+    }
+
+    private byte[] getPhoto(final Integer id) throws  IOException{
+        return Files.readAllBytes(new File(String.format("/opt/cars/car_%s.png", id)).toPath());
     }
 
 }

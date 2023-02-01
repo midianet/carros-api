@@ -1,0 +1,12 @@
+html {
+    font-family: "Roboto", sans-serif
+}
+
+a {
+    color: #7a7a7f;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover {
+    color: gray;
+}
