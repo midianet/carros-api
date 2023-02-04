@@ -6,11 +6,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
         <link rel="stylesheet" href="style.css">
+     
+    <script type="text/javascript">    
+      function adicionar_favoritos() {
+	var url = document.getElementById("numero");
+	var conteudo = document.getElementById("conteudo");
+	conteudo.innerHTML += '<a href=http://23.21.126.255/imagens/'+url.value+'>Carro '+url.value+'</a><br />';
+	url.value = '';
+      }
+    </script>
+  
     </head>
     <body style="background-color: lightsteelblue">
         <h1>Carros Api @project.version@</h1>
         <p>Acesse: <a href="/carros"target="_blank">/carros</a> para listar os Carros</p>
         <p>Acesse: <span>/imagens/{id}</span> para ver as fotos do carro desejado</br>
           Exemplo: <a href="/imagens/1" target="_blank">/imagens/1</a></p>
+   <h1>Escolha um número</h1>
+    <form name="favoritos" id="favoritos">
+      <input type="number" id="numero" name="numero" min="1" max="10">
+      <input type="button" name="btn_adicionar" id="btn_adicionar" value="Adicionar" onclick="adicionar_favoritos()" />
+    </form>
+    <p>-----------------------------------------------------</p>
+    <div id='conteudo'></div>
     </body>
 </html>
